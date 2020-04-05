@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import {PermissionsAndroid, Platform} from 'react-native';
+import React, { Component } from 'react';
+import { PermissionsAndroid, Platform } from 'react-native';
 import CallLogs from 'react-native-call-log';
-import {ListCalls} from '../components/ListingCalls';
+import { ListCalls } from '../components/ListingCalls';
 
 class CallLogListScreen extends Component {
   constructor(props) {
@@ -11,10 +11,10 @@ class CallLogListScreen extends Component {
     };
   }
 
-  componentDidMount = async () => {
+  async componentDidMount() {
     if (Platform.OS !== 'ios') {
       try {
-        //ask for permission
+        // permission
         const callPermsGranted = await PermissionsAndroid.request(
           PermissionsAndroid.PERMISSIONS.READ_CALL_LOG,
           {
@@ -28,7 +28,7 @@ class CallLogListScreen extends Component {
         );
 
         if (callPermsGranted === PermissionsAndroid.RESULTS.GRANTED) {
-          CallLogs.loadAll().then(call => this.setState({FlatListItems: call}));
+          CallLogs.loadAll().then((call) => this.setState({ FlatListItems: call }));
         } else {
           alert('Access Call log permissions denied');
         }
@@ -40,10 +40,11 @@ class CallLogListScreen extends Component {
         'Sorry! You cannot get call logs on iPhone because of the security concern!',
       );
     }
-  };
+  }
 
   render() {
-    return <ListCalls FlatListItems={this.state.FlatListItems} />;
+    const { FlatListItems } = this.state;
+    return <ListCalls FlatListItems={FlatListItems} />;
   }
 }
 

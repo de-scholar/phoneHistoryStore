@@ -1,24 +1,25 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  View, Text, StyleSheet, TouchableOpacity,
+} from 'react-native';
 import IconContainer from '../components/IconContainer';
 import IntroductionTextContainer from '../components/IntroductionTextContainer';
-import {SMS_PERMISSIONS} from '../../assets/text/eng/callLogPermissions';
+import { SMS_PERMISSIONS } from '../../assets/text/eng/callLogPermissions';
 
-const SmsPermsReqsScreen = props => {
-  return (
-    <View style={styles.container}>
-      <IconContainer
-        iconSource={require('../../assets/img/phone-history-store-icon.png')}
-      />
-      <IntroductionTextContainer textToShow={SMS_PERMISSIONS} />
-      <TouchableOpacity
-        onPress={() => props.navigation.navigate('SmsListScreen')}
-        style={styles.touchableBtn}>
-        <Text style={styles.text}>Sync your sms</Text>
-      </TouchableOpacity>
-    </View>
-  );
-};
+const SmsPermsReqsScreen = (props) => (
+  <View style={styles.container}>
+    <IconContainer
+      iconSource={require('../../assets/img/phone-history-store-icon.png')}
+    />
+    <IntroductionTextContainer textToShow={SMS_PERMISSIONS} />
+    <TouchableOpacity
+      onPress={() => props.navigation.navigate('SmsListScreen')}
+      style={styles.touchableBtn}
+    >
+      <Text style={styles.text}>Sync your sms</Text>
+    </TouchableOpacity>
+  </View>
+);
 
 const styles = StyleSheet.create({
   container: {

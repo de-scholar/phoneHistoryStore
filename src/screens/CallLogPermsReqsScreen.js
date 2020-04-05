@@ -1,47 +1,35 @@
 import React from 'react';
-import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  Text, View, TouchableOpacity,
+} from 'react-native';
+import PropTypes from 'prop-types';
 import IconContainer from '../components/IconContainer';
 import IntroductionTextContainer from '../components/IntroductionTextContainer';
-import {CALL_LOG_PERMISSIONS} from '../../assets/text/eng/callLogPermissions';
+import { CALL_LOG_PERMISSIONS } from '../../assets/text/eng/callLogPermissions';
+import styles from '../styles/allStyles';
 
-const CallLogPermsReqsScreen = props => {
+const iconPic = require('../../assets/img/phone-history-store-icon.png');
+
+const CallLogPermsReqsScreen = ({ navigation }) => {
+  CallLogPermsReqsScreen.propTypes = {
+    navigation: PropTypes.object.isRequired,
+  };
+  const { navigate } = navigation;
   return (
+
     <View style={styles.container}>
       <IconContainer
-        iconSource={require('../../assets/img/phone-history-store-icon.png')}
+        iconSource={iconPic}
       />
       <IntroductionTextContainer textToShow={CALL_LOG_PERMISSIONS} />
       <TouchableOpacity
-        onPress={() => props.navigation.navigate('CallLogListScreen')}
-        style={styles.touchableBtn}>
+        onPress={() => navigate('CallLogListScreen')}
+        style={styles.touchableBtn}
+      >
         <Text style={styles.text}>View Call Logs</Text>
       </TouchableOpacity>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: 'rgb(100,120,255)',
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 5,
-  },
-  text: {
-    fontSize: 15,
-    color: 'rgb(255,255,255)',
-    textAlign: 'center',
-  },
-  touchableBtn: {
-    marginTop: -20,
-    marginBottom: 10,
-    padding: 5,
-    width: '80%',
-    borderRadius: 30,
-    backgroundColor: 'rgba(200,200,220,0.8)',
-  },
-});
 
 export default CallLogPermsReqsScreen;
