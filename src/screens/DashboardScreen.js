@@ -12,22 +12,30 @@ const DashbordScreen = ({ navigation }) => {
   <View style={styles.dashBoardContainer}>
       <TouchableOpacity
         style={styles.dashBoardBtns}
-        onPress={() => navigate('CallLogPermsReqsScreen')}>
+        onPress={() => navigate('IncomingCallScreen')}>
           <Text style={styles.text}>Incoming calls</Text>
       </TouchableOpacity>
       
       <TouchableOpacity
-        style={styles.dashBoardBtns}>
+        style={styles.dashBoardBtns}
+        onPress={() => navigate('OutgoingCallScreen')}>
       <Text style={styles.text}>Outgoing calls</Text>
     </TouchableOpacity>
       <TouchableOpacity
-        style={styles.dashBoardBtns}>
+        style={styles.dashBoardBtns}
+        onPress={() => navigate('MissedCallScreen')}>
           <Text style={styles.text}>Missed calls</Text>
       </TouchableOpacity>
       
       <TouchableOpacity
-        style={styles.dashBoardBtns}>
+        style={styles.dashBoardBtns}
+        onPress={() => navigate('RejectedCallScreen')}>
       <Text style={styles.text}>Rejected calls</Text>
+    </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.dashBoardBtns}
+        onPress={() => navigate('BlockedCallScreen')}>
+      <Text style={styles.text}>Blocked calls</Text>
     </TouchableOpacity>
       <TouchableOpacity
         style={styles.dashBoardBtns}>

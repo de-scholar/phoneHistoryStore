@@ -18,15 +18,11 @@ export const ListCalls = props => {
               {'\n'}
               DateTime : {item.dateTime}
               {'\n'}
-              Duration : {item.duration}
+              Duration : {item.duration} Seconds
               {'\n'}
               PhoneNumber : {item.phoneNumber}
               {'\n'}
-              RawType : {item.rawType}
-              {'\n'}
-              TimeStamp : {item.timestamp}
-              {'\n'}
-              Type : {item.type}
+              Type : {item.callType}
             </Text>
           </View>
         )}

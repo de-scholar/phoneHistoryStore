@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Platform, PermissionsAndroid} from 'react-native';
-import ListingSms from '../components/ListingSms.js';
+import ListingSms from '../../../components/ListingSms.js';
 import SmsAndroid from 'react-native-get-sms-android';
 
 export default class SmsListScreen extends Component {
