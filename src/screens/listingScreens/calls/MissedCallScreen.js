@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { PermissionsAndroid, Platform } from 'react-native';
 import CallLogs from 'react-native-call-log';
-import { ListCalls } from '../components/ListingCalls';
+import { ListCalls } from '../../../components/ListingCalls';
 
-class CallLogListScreen extends Component {
+class MissedCallScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,7 +28,15 @@ class CallLogListScreen extends Component {
         );
 
         if (callPermsGranted === PermissionsAndroid.RESULTS.GRANTED) {
-          CallLogs.loadAll().then((call) => this.setState({ FlatListItems: call }));
+          const allCalls = await CallLogs.loadAll();
+          const missedCalls = [];
+          allCalls.forEach((currCall) => { 
+            if (currCall.rawType === 3) {
+              currCall.callType = 'Missed call'
+              missedCalls.push(currCall);
+            };
+          });
+          this.setState({ FlatListItems: missedCalls });
         } else {
           alert('Access Call log permissions denied');
         }
@@ -48,4 +56,4 @@ class CallLogListScreen extends Component {
   }
 }
 
-export default CallLogListScreen;
+export default MissedCallScreen;

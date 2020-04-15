@@ -2,14 +2,14 @@ import React from 'react';
 import {
   View, Text, StyleSheet, TouchableOpacity,
 } from 'react-native';
-import IconContainer from '../components/IconContainer';
-import IntroductionTextContainer from '../components/IntroductionTextContainer';
-import { SMS_PERMISSIONS } from '../../assets/text/eng/callLogPermissions';
+import IconContainer from '../../components/IconContainer';
+import IntroductionTextContainer from '../../components/IntroductionTextContainer';
+import { SMS_PERMISSIONS } from '../../../assets/text/eng/callLogPermissions';
 
 const SmsPermsReqsScreen = (props) => (
   <View style={styles.container}>
     <IconContainer
-      iconSource={require('../../assets/img/phone-history-store-icon.png')}
+      iconSource={require('../../../assets/img/phone-history-store-icon.png')}
     />
     <IntroductionTextContainer textToShow={SMS_PERMISSIONS} />
     <TouchableOpacity
